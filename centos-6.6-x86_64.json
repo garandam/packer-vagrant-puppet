@@ -1,0 +1,31 @@
+{
+	"variables": {
+        "ks_boot_git_url": "<tab> <wait5> noverifyssl ks=https://raw.githubusercontent.com/garandam/tuts/master/CentOS/Kickstart/centos-6-x86_64-vagrant-puppet-box.txt<wait><enter>",
+        "ks_boot_int_url": "<tab> <wait5> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-6.6-x86_64/ks.cfg<wait><enter>"
+      }
+    ,
+	"builders":  [
+	  {
+  		"type": "virtualbox-iso",
+  		"guest_os_type": "RedHat_64",
+  		"iso_url": "http://mirror.switch.ch/ftp/mirror/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso",
+  		"iso_checksum": "eb3c8be6ab668e6d83a118323a789e6c",
+  		"iso_checksum_type": "md5",
+  		"ssh_username": "root",
+  		"ssh_password": "vagrant",
+  		"ssh_wait_timeout": "90m",
+  		"http_directory" : "http",
+  		"boot_command":[
+  		  "{{user `ks_boot_git_url`}}"
+		],
+		"shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+	  }
+	],
+	"provisioners": [
+	  {
+  	    "type": "puppet-masterless",
+        "manifest_file": "puppet/manifests/site.pp"
+	  }
+	],
+	"post-processors": ["vagrant"]
+}
