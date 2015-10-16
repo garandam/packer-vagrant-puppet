@@ -1,12 +1,19 @@
 Packer-templates
------
+======
 
 Packer templates used to build base box images
 
-### Requirements
-  - [Packer]	  0.7.5 =<
-  - [Vagrant]	  1.7.1 =<
-  - [VirtualBox]4.30.20 =<
+Requirements
+-----
+
+Name        | min. Version  | 
+------------|---------------|
+[Packer]    | 0.7.5         | 
+[Vagrant]   | 1.7.1         | 
+[VirtualBox]| 4.30.20       | 
+
+Usage
+-----
 
 ### Building & working with the Box
 ```sh
