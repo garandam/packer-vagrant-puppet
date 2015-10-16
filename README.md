@@ -41,10 +41,10 @@ $ vagrant ssh
   - `vagrant` account uses the [Vagrant project's insecure public key](https://github.com/mitchellh/vagrant/tree/master/keys)
 
 ### The easy way
-  - Modify and try the create_box.sh ;-)
+  - Modify and try the `create_box.sh` ;-)
 
 ### Workaround with bridge problemes:
-  - My bridge networkcard is defect and over NAT it's doesen't work with the http-Server, so I add the ks-git-url at the {template_name}.json
+  - My bridge networkcard is defect and over NAT it's doesen't work with the http-Server, so I add the ks-git-url at the `{template_name}.json`
 
 License
 ------
