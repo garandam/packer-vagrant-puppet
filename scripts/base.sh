@@ -1,19 +1,14 @@
+#!/bin/bash
+
 echo "start - base"
 # Update repos
 yum update -y --skip-broken
 
 # Other tools
 yum groupinstall -y "Development Tools"
-yum install -y sudo ntp git ruby wget man vim bind-utils.x86_64
+yum install -y sudo tree vim wget git ruby man curl bind-utils.x86_64
 
-# NTP
-chkconfig ntpd on
-service ntpd stop
-ntpdate pool.ntp.org
-service ntpd start
+# enable tty to run sudo
+sed -i 's/^\(Defaults.*requiretty\)/#\1/' /etc/sudoers
 
-# SSHD
-chkconfig sshd on
-chkconfig iptables off
-chkconfig ip6tables off
 echo "end - base"

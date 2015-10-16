@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "start - cleanup"
 rm -rf /tmp/*
 rm -f /var/log/wtmp

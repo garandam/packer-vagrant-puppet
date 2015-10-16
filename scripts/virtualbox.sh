@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "start - virtualbox guest additions"
 mkdir -p /mnt/virtualbox
 mount -o loop ~/VBoxGuest*.iso /mnt/virtualbox
