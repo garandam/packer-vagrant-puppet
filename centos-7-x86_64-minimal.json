@@ -4,6 +4,7 @@
     "vcs":true
   },
   "variables":{
+    "provisioner": "virtualbox",
     "ks_boot_git_url":"<tab> <wait5> noverifyssl ks=https://raw.githubusercontent.com/garandam/packer-vagrant-puppet/master/http/centos-7-x86_64/ks.cfg <wait><enter>",
     "ks_boot_int_url":"<tab> <wait5> ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7-x86_64/ks.cfg <wait><enter>"
   },
@@ -17,6 +18,7 @@
     },
     {
       "type":"puppet-masterless",
+      "prevent_sudo": true,
       "manifest_dir":"puppet/manifests",
       "manifest_file":"puppet/manifests/site.pp",
       "module_paths":["puppet/modules"]
