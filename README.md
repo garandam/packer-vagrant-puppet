@@ -26,17 +26,22 @@ $ vagrant up
 	
 ```sh
 ### SAMPLE
-$ packer build centos-6.6-x86_64.json
-$ vagrant box add centos66 packer_virtualbox-iso_virtualbox.box
+$ packer build centos-7-x86_64.json
+$ vagrant box add centos7 packer_virtualbox-iso_virtualbox.box
 $ mkdir test_env
 $ cd test_env/
-$ vagrant init centos66
+$ vagrant init centos7
 $ vagrant up
 $ vagrant ssh
 ```
 
+### VM settings
+
+  - `root` password is set to `puppet`
+  - `vagrant` account uses the [Vagrant project's insecure public key](https://github.com/mitchellh/vagrant/tree/master/keys)
+
 ### The easy way
-- Modify and try the create_box.sh ;-)
+  - Modify and try the create_box.sh ;-)
 
 ### Workaround with bridge problemes:
   - My bridge networkcard is defect and over NAT it's doesen't work with the http-Server, so I add the ks-git-url at the {template_name}.json
